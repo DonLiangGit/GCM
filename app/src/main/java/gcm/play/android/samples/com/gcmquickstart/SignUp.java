@@ -85,6 +85,7 @@ public class SignUp extends Activity {
                         // specify the URL you want to post to
                         HttpPost httppost = new HttpPost("http://droidmonitor.comxa.com/index.php");
                         try {
+                            //changes
                             // create a list to store HTTP variables and their values
                             List nameValuePairs = new ArrayList();
                             // add an HTTP variable and value pair
