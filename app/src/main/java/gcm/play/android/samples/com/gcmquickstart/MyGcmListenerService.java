@@ -65,10 +65,16 @@ public class MyGcmListenerService extends GcmListenerService {
         }
         else if(message.matches(".*\\bwifi\\b.*"))
         {
-            WifiManager wifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            wifiManager.setWifiEnabled(true);
-            Log.d("I/O Instruction","wifi");
+            WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            if (wifiManager.isWifiEnabled()) {
+                wifiManager.setWifiEnabled(false);
+            } else {
+                wifiManager.setWifiEnabled(true);
+                Log.d("I/O Instruction", "wifi");
+            }
         }
+
+
         else if(message.matches(".*\\bdata\\b.*"))
         {
             try {
